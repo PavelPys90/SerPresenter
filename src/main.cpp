@@ -19,12 +19,22 @@ const char index_html[] PROGMEM = R"rawliteral(
   html, body { height: 100%; }
   body {
     display: flex;
+    flex-direction: column;
     background: #1a1a1a;
     font-family: -apple-system, sans-serif;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
     -webkit-user-select: none;
   }
+  header {
+    padding: 12px 16px;
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #333;
+  }
+  header span { color: #555; font-size: 11px; }
   .btn {
     flex: 1;
     display: flex;
@@ -37,6 +47,7 @@ const char index_html[] PROGMEM = R"rawliteral(
     transition: background 0.1s;
     -webkit-appearance: none;
     outline: none;
+    touch-action: manipulation;
   }
   .btn:active { filter: brightness(1.3); }
   .prev { background: #2d2d2d; }
@@ -48,6 +59,7 @@ const char index_html[] PROGMEM = R"rawliteral(
 </style>
 </head>
 <body>
+<header>SerPresenter <span>v0.1.0</span></header>
 <button class="btn prev" ontouchstart="send('prev')" onmousedown="send('prev')">&#9664;</button>
 <button class="btn next" ontouchstart="send('next')" onmousedown="send('next')">&#9654;</button>
 <div class="status" id="status"></div>
